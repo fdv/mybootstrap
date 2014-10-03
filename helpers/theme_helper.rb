@@ -28,7 +28,7 @@ def display_thumbnail(article)
   
   if img
     uri = img.attributes['src']
-    if uri.include?('http://')
+    if uri.include?('https://')
       path = File.join(Rails.root, 'public', uri.split('/')[3..-2].join('/'))
     else
       path = File.join(Rails.root, 'public', uri.split('/')[0..-2].join('/'))
