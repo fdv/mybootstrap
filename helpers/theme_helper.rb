@@ -19,7 +19,7 @@ def render_similar_posts(article)
       mylist += Tag.find_by_name(tag.name).articles.where('state= ? and published = ? and id != ?', 'published', true, article.id)
     end
     mylist = mylist.uniq
-    mylist.sort_by {rand}[0,4]
+    mylist.sort_by {rand}[0,6]
   end
 end
 
