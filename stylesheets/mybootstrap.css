@@ -93,6 +93,15 @@ q:before { content: "« " }
 q { font-style: italic; }
 
 /* CodeRay */
+div.CodeRay {
+  margin-bottom: 30px;
+}
+
+.CodeRay {
+  margin: 0;
+  padding: 0;
+}
+
 .CodeRay pre {
   font-family: Consolas,"Courier New",monospace;
   border: none;
@@ -100,21 +109,17 @@ q { font-style: italic; }
   background-color: hsl(0,0%,95%);
   color: black;
   font-size: 13px;
+  padding: 4px 8px;
 }
 
 table.CodeRay {
   border: none;
   font-size: 13px;
-  
 }
 
 .line-numbers pre {
   background: none;
   white-space: pre;
-}
-
-div.CodeRay {
-  padding: 4px 8px;
 }
 
 img {
@@ -228,3 +233,4 @@ p.p-name.entry-title.e-content.entry-content.article a {
 #page.img-margin {
   margin-top: 600px;
 }
+
