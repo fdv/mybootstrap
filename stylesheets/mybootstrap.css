@@ -23,11 +23,20 @@ img.thumb {
   margin: 0 5px 5px 0;
 }
 
-img.centered, img.alignleft, img.alignright, img.thumb {
-    background: #ddd;
-    border: 1px solid #DDDDDD;
-    line-height: 1;
-    padding: 4px;
+img.centered, img.alignleft, img.alignright, img.thumb, img.circular {
+  line-height: 1;
+}
+
+img.centered, img.alignleft, img.alignright {
+  border: rgba(0,0,0,0.30) 1px  solid;
+  padding: 0;
+}
+
+img.circular, img.thumb {
+  background: #fff;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.30); 
+  padding: 0;  
 }
 
 #related {
@@ -155,7 +164,7 @@ article p a {
 img.thumb {
   width: 96px;
   height: 96px;
-  margin-top: 10px;  
+  margin-top: 10px;
 }
 
 img.circular {
