@@ -63,23 +63,19 @@
         <li class='divider-vertical'></li>
         <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
         <li class='divider-vertical'></li>
+        <li class='hidden-phone'><%= link_to("About", {:controller => 'articles', :action => 'view_page', :name => 'about'}) %></li>
         <li class='hidden-phone'><%= link_to("A propos", {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
         <li class='divider-vertical'></li>
         <li class='hidden-phone' style='text-align: right'>
           <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="form-control" />
+              <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="15" class="form-control" />
             </div>
           </form>
         </li>
         <li>
           <a href="https://github.com/fdv" rel="me">
             <img src="/images/theme/icon_github<%= bigpicture %>.png" alt="Mon compte Github" />
-          </a>
-        </li>
-        <li>
-          <a href="http://linkedin.com/in/fdevillamil" rel="me">
-            <img src="/images/theme/icon_linkedin<%= bigpicture %>.png" alt="Mon profil Linkedin" />
           </a>
         </li>
         <li>
