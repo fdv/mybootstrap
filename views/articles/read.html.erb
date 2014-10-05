@@ -4,7 +4,7 @@
     <p>
       <small>Frédéric de Villamil</small>
       <img src='/images/theme/frederic-de-villamil-circle.png' alt="Frédéric de Villamil" class="circular" />
-      <small><time>le <%= display_date(@article.published_at) %></time></small>
+      <small><time>on <%= display_date(@article.published_at) %></time></small>
     </p>
   </div>
   <div class='col-lg-8 col-lg-offset-2'>
@@ -17,17 +17,17 @@
       <hr />
       <div class='row'>
         <div class='col-lg-12 text-right'>
-            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://twitter.com/share?url=<%= URI.encode(@article.permalink_url) %>&amp;text=<%= URI.escape(@article.title) %>&amp;via=fdevillamil"><img src="/images/theme/icon_share_twitter.png" alt="Partagez sur Twitter"></a>
-            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=<%= URI.encode(@article.permalink_url) %>&amp;t=<%= URI.escape(@article.title) %>"><img src="/images/theme/icon_share_facebook.png" alt="Partagez sur Facebook"></a>
-            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://plus.google.com/share?url=<%= URI.encode(@article.permalink_url) %>&amp;hl=fr"><img src="/images/theme/icon_share_googleplus.png" alt="Partagez sur Google Plus"></a>
-            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(@article.permalink_url) %>&amp;title=<%= URI.escape(@article.title) %>"><img src="/images/theme/icon_share_linkedin.png" alt="Partagez sur Linkedin Plus"></a>
+            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://twitter.com/share?url=<%= URI.encode(@article.permalink_url) %>&amp;text=<%= URI.escape(@article.title) %>&amp;via=fdevillamil"><img src="/images/theme/icon_share_twitter.png" alt="twitter" title="Share this on Twitter"></a>
+            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=<%= URI.encode(@article.permalink_url) %>&amp;t=<%= URI.escape(@article.title) %>"><img src="/images/theme/icon_share_facebook.png" alt="Facebook" title="Share this on Facebook"></a>
+            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://plus.google.com/share?url=<%= URI.encode(@article.permalink_url) %>&amp;hl=fr"><img src="/images/theme/icon_share_googleplus.png" alt="Google+" title="Share this on Google+"></a>
+            <a target="_blank" class='icon' rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(@article.permalink_url) %>&amp;title=<%= URI.escape(@article.title) %>"><img src="/images/theme/icon_share_linkedin.png" alt="Linkedin" title="Share this on Linkedin"></a>
         </div>
       </div>
       <% related = render_similar_posts @article %>
       <% unless related.nil? || related.empty? %>
       <div id='related' class='row'>
         <div class='col-lg-12'>
-          <h3>À lire après <em><%= @article.title %></em></h3>
+          <h3>If you liked <em><%= @article.title %></em>, you should read:</h3>
         </div>
       </div>
       <div class='row'>

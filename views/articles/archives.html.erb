@@ -14,11 +14,11 @@
              currentyear = article.published_at.year -%>
               <%= content_tag(:hr) if counter != 0 %>
               <% counter = 1 if counter == 0 %>
-              <h3><%= t_month(Date::MONTHNAMES[article.published_at.month].to_s.downcase).to_s.capitalize %> <%= article.published_at.year %></h3>
+              <h3><%=   Date::MONTHNAMES[article.published_at.month].to_s.capitalize %> <%= article.published_at.year %></h3>
                <% end -%>
                <p>
                  <%= article.published_at.mday %> -
-                 <%= link_to_permalink(article,h(article.title)) %><small><%= tag_links(article, "<br />Dans") unless article.tags.empty? %></small>
+                 <%= link_to_permalink(article,h(article.title)) %><small><%= tag_links(article, "<br />In") unless article.tags.empty? %></small>
                </p>
     <% end 
     end -%>

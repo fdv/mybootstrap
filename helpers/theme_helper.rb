@@ -5,7 +5,7 @@ require 'json'
 
 def view_on_twitter(status)
   return if status.twitter_id.nil? or status.twitter_id.empty?
-  return link_to('voir sur Twitter', File.join('https://twitter.com', status.user.twitter_account, 'status', status.twitter_id), {class: 'u-syndication', rel: 'syndication'})
+  return link_to('view on Twitter', File.join('https://twitter.com', status.user.twitter_account, 'status', status.twitter_id), {class: 'u-syndication', rel: 'syndication'})
 end
 
 def tag_links(article, prefix="tags")
@@ -47,25 +47,6 @@ end
 
 def note_title(content)
   content.strip_html.slice(0..80)
-end
-
-def t_month(month)
-  months = {
-    'january' => 'janvier',
-    'february' => 'fevrier',
-    'march' => 'mars',
-    'april' => 'avril',
-    'may' => 'mai',
-    'june' => 'juin',
-    'july' => 'juillet',
-    'august' => 'aout',
-    'september' => 'septembre',
-    'october' => 'octobre',
-    'november' => 'novembre',
-    'december' => 'décembre'
-  }
-  
-  return months[month] ? months[month] : 'Oooops'
 end
 
 def get_image(article)
@@ -119,11 +100,11 @@ def get_title
   end
   
   if controller.action_name == 'search'
-    return content_tag(:h1, link_to("Résultats de la recherche pour #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
+    return content_tag(:h1, link_to("Search results for #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
   end
   
   if controller.controller_name == 'tags' and controller.action_name == 'show'
-    published = params[:id] == 'english' ? "Articles In English" : "Articles publiés dans #{@grouping.display_name}"
+    published = params[:id] == 'francais' ? "Articles publiés en français" : "Articles published in #{@grouping.display_name}"
     return content_tag(:h1, link_to("#{published}#{page}".html_safe, controller: 'tags', action: 'show', id: params[:id], page: params[:page]).html_safe).html_safe
   end
 
