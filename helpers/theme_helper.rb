@@ -133,3 +133,8 @@ def get_title
   
   return content_tag(:h1, link_to("#{this_blog.blog_name}#{page}".html_safe, this_blog.base_url).html_safe).html_safe
 end
+
+def get_lang
+  return 'fr' if controller.action_name == 'redirect' and @article and @article.tags.map { |tag| tag.name }.include?('français')
+  return 'en'
+end

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<%= get_lang %>">
 <head>
   <title><%= h(page_title.html_safe) if page_title %></title>
   <%= meta_tag 'description', @description unless @description.blank? %>
