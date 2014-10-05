@@ -1,0 +1,45 @@
+  <% bigpicture = (['redirect', 'view_page'].include?(controller.action_name)) ? "" : "_bigpicture" %>
+
+  <nav class='navbar navbar-default <%= "bigpicture" unless ['redirect', 'view_page'].include?(controller.action_name) %>' role='navigation'>
+    <div class="navbar-header">
+      <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class='nav navbar-nav pull-right'>
+        <% if get_lang == 'fr' %>
+        <%= content_tag(:li, link_to("A propos", {controller: 'articles', action: 'view_page', name: 'frederic-de-villamil-et-le-rayon-ux'}), class: 'hidde-phone') %>
+        <% else %>
+        <%= content_tag(:li, link_to("About", {controller: 'articles', action: 'view_page', name: 'about'}), class: 'hidden-phone') %>
+        <% end %>        
+        <%= content_tag(:li, link_to(t(".archives"), {controller: 'articles', action: 'archives'}), class: 'hidden-phone') %>
+        <%= content_tag(:li, link_to("Français", {controller: 'tags', action: 'show', id: 'francais'}), class: 'hidden-phone') %>
+        <li class='hidden-phone'>
+          <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" id="q" name="q" value="" placeholder="Search + enter" size="15" class="form-control" />
+            </div>
+          </form>
+        </li>
+        <li>
+          <a href="https://github.com/fdv" rel="me">
+            <img src="/images/theme/icon_github<%= bigpicture %>.png" alt="Github" title="Checkout my code on Github">
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/fdevillamil" rel="me">
+            <img src="/images/theme/icon_twitter<%= bigpicture %>.png" alt="twitter" title="Follow me on Twitter">
+          </a>
+        </li>
+        <li>
+          <a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&amp;id=f9ba4f0896" rel="external nofollow">
+            <img src="/images/theme/icon_email<%= bigpicture %>.png" alt="email" title="Get every post in your mailbox">
+          </a>
+        </li>
+        <li>
+          <a href="<%= feed_rss =%>" rel="nofollow">
+              <img src="/images/theme/icon_rss<%= bigpicture %>.png" alt="RSS" title="Get every update in your feed reader, for old school geeks only">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>

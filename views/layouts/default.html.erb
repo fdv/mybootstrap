@@ -34,7 +34,6 @@
   <%= google_plus(@article, @description) if @article %>  
 </head>
 <body>
-  <% bigpicture = (['redirect', 'view_page'].include?(controller.action_name)) ? "" : "_bigpicture" %>
   <% unless ['redirect', 'view_page'].include?(controller.action_name)  %>
   <div class='img-wrapper'>
     <div class='title-wrapper'>
@@ -43,9 +42,7 @@
           <div class='col-lg-10 col-lg-offset-1'>
             <%= get_title %>
             <p>
-              <small>Frédéric de Villamil</small>
               <img src='/images/theme/frederic-de-villamil-circle.png' alt="Frédéric de Villamil" class='circular' />
-              <small>Le Rayon UX </small>
             </p>
           </div>
         </div>
@@ -53,49 +50,7 @@
     </div>
   </div>
   <% end %>
-  <nav class='navbar navbar-default <%= "bigpicture" unless ['redirect', 'view_page'].include?(controller.action_name) %>' role='navigation' style='padding: 0 20px'>
-    <div class="navbar-header">
-      <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class='nav navbar-nav pull-right'>
-        <li class='hidden-phone'><%= link_to("English", {:controller => 'tags', :action => 'show', :id => 'english'}) %></li>
-        <li class='divider-vertical'></li>
-        <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
-        <li class='divider-vertical'></li>
-        <li class='hidden-phone'><%= link_to("About", {:controller => 'articles', :action => 'view_page', :name => 'about'}) %></li>
-        <li class='hidden-phone'><%= link_to("A propos", {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
-        <li class='divider-vertical'></li>
-        <li class='hidden-phone' style='text-align: right'>
-          <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="15" class="form-control" />
-            </div>
-          </form>
-        </li>
-        <li>
-          <a href="https://github.com/fdv" rel="me">
-            <img src="/images/theme/icon_github<%= bigpicture %>.png" alt="Mon compte Github" />
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/fdevillamil" rel="me">
-            <img src="/images/theme/icon_twitter<%= bigpicture %>.png" alt="Mon compte Twitter">
-          </a>
-        </li>
-        <li>
-          <a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&amp;id=f9ba4f0896" rel="external nofollow">
-            <img src="/images/theme/icon_email<%= bigpicture %>.png" alt="Abonnez-vous à la newsletter">
-          </a>
-        </li>
-        <li>
-          <a href="<%= feed_rss =%>" rel="nofollow">
-              <img src="/images/theme/icon_rss<%= bigpicture %>.png" alt="Abonnez-vous au flux RSS">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <%= render partial: 'shared/nav' %>
 
 <div class='container'> 
   <div id='page' <%= "class='img-margin'" unless ['redirect', 'view_page'].include?(controller.action_name) %> >
@@ -104,7 +59,7 @@
   
   <footer class='footer'>
     <small>
-      <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>CC 3.0 BY-NC-SA</a> – Frédéric de Villamil <em>since 1978</em>
+      <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>CC 3.0 BY-NC-SA</a> – Fred de Villamil 2002 - <%= Time.now.strftime("%Y") %>
     </small>
   </footer>
 </div>
