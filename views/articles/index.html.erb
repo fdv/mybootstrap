@@ -1,10 +1,11 @@
-<% @i = 0 %>
-
 <div class='hfeed'>
   <%= render @articles %>
   <div class='row'>
-    <div class='paginate col-lg-8 col-lg-offset-3'>
-      <%= paginate(@articles)%>
+    <div class='col-lg-4 col-lg-offset-3'>
+      <%= link_to_previous_page @articles, '← Previous articles' %>
+    </div>
+    <div class='col-lg-4 text-right'>
+      <%= link_to_next_page @articles, 'Next articles →' %>
     </div>
   </div>
-</div>  
+</div>

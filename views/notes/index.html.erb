@@ -1,8 +1,11 @@
 <div class='hfeed'>
   <%= render @notes %>
   <div class='row'>
-    <div class='paginate col-lg-8 col-lg-offset-3'>
-      <%= paginate(@notes)%>
+    <div class='col-lg-4 col-lg-offset-3'>
+      <%= link_to_previous_page @notes, '← Previous notes' %>
+    </div>
+    <div class='col-lg-4 text-right'>
+      <%= link_to_next_page @notes, 'Next notes →' %>
     </div>
   </div>
 </div>  
