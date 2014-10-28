@@ -116,6 +116,6 @@ def get_title
 end
 
 def get_lang
-  return 'fr' if controller.action_name == 'redirect' and @article and @article.tags.map { |tag| tag.name }.include?('français')
-  return 'en'
+  return 'fr' if controller.action_name == 'redirect' and @article and @article.tags.map { |tag| tag.name }.include?('francais')
+  'en'
 end
