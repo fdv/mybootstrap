@@ -140,17 +140,27 @@ img.thumb {
   padding: 0;  
 }
 
-img.circular {
+img.circular,
+nav img {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   display: inline;
 }
 
+nav img {
+  width: 32px;
+  height: 32px;
+}
+
+nav img.avatar {
+  margin-right: 10px;
+}
+
 img.thumb {
+  margin-top: 10px;
   width: 96px;
   height: 96px;
-  margin-top: 10px;
 }
 
 #related img.circular {

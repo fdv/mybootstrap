@@ -1,8 +1,6 @@
-  <% bigpicture = (['redirect', 'view_page'].include?(controller.action_name)) ? "" : "_bigpicture" %>
-
-  <nav class='navbar navbar-default <%= "bigpicture" unless ['redirect', 'view_page'].include?(controller.action_name) %>' role='navigation'>
+  <nav class='navbar navbar-default' role='navigation'>
     <div class="navbar-header">
-      <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
+      <%= link_to(get_avatar + this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class='nav navbar-nav pull-right'>
@@ -22,22 +20,22 @@
         </li>
         <li>
           <a href="https://github.com/fdv" rel="me">
-            <img src="/images/theme/icon_github<%= bigpicture %>.png" alt="Github" title="Checkout my code on Github">
+            <img src="/images/theme/icon_github.png" alt="Github" title="Checkout my code on Github">
           </a>
         </li>
         <li>
           <a href="https://twitter.com/fdevillamil" rel="me">
-            <img src="/images/theme/icon_twitter<%= bigpicture %>.png" alt="twitter" title="Follow me on Twitter">
+            <img src="/images/theme/icon_twitter.png" alt="twitter" title="Follow me on Twitter">
           </a>
         </li>
         <li>
           <a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&amp;id=f9ba4f0896" rel="external nofollow">
-            <img src="/images/theme/icon_email<%= bigpicture %>.png" alt="email" title="Get every post in your mailbox">
+            <img src="/images/theme/icon_email.png" alt="email" title="Get every post in your mailbox">
           </a>
         </li>
         <li>
           <a href="<%= feed_rss =%>" rel="nofollow">
-              <img src="/images/theme/icon_rss<%= bigpicture %>.png" alt="RSS" title="Get every update in your feed reader, for old school geeks only">
+              <img src="/images/theme/icon_rss.png" alt="RSS" title="Get every update in your feed reader, for old school geeks only">
           </a>
         </li>
       </ul>

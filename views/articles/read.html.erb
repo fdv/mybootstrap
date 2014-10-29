@@ -1,19 +1,26 @@
 <article id="article-<%= @article.id %>" class="h-entry row">
   <div class='col-lg-8 col-lg-offset-2 page-header' >
     <h1 class='p-name'><%= link_to_permalink(@article,@article.title) %></h1>
+<!--
     <p>
       <small>Frédéric de Villamil</small>
       <img src='/images/theme/frederic-de-villamil-circle.png' alt="Frédéric de Villamil" class="circular" />
       <small><time>on <%= display_date(@article.published_at) %></time></small>
     </p>
+    -->
   </div>
   <div class='col-lg-8 col-lg-offset-2'>
-
+    
     <%= @article.html(:body) %>
     <%= @article.html(:extended) %>
     <footer>
-      <div class='text-right'><small><%= tag_links(@article, "Dans") %></small></div>
+      <div class='row'>
+      <div class='col-lg-6'>
+        <small>FREDERIC DE VILLAMIL <time>on <%= display_date(@article.published_at) %></time></small>
+      </div>
       
+      <div class='col-lg-6 text-right'><small><%= tag_links(@article, "In") %></small></div>
+    </div>
       <hr />
       <div class='row'>
         <div class='col-lg-12 text-right'>

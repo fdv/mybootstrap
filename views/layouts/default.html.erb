@@ -4,13 +4,12 @@
   <title><%= h(page_title.html_safe) if page_title %></title>
   <%= meta_tag 'description', @description unless @description.blank? %>
   <%= show_meta_keyword %>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <script type="text/javascript" src="//use.typekit.net/kvg7shx.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.css", "/stylesheets/theme/mybootstrap.css", "user-styles.css", "coderay.css", :media => 'all' %>
   <%= meta_tag 'robots', 'noindex, follow' if stop_index_robots?(this_blog) %>
-  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%= url_for :controller => '/xml', :action => 'rsd' %>" />
   <%- if feed_atom %>
     <link rel="alternate" type="application/atom+xml" title="Atom" href="<%= feed_atom %>" />
   <%- end %>
@@ -24,36 +23,20 @@
   <%= meta_tag 'og:site_name', this_blog.blog_name %>
   <%= meta_tag 'og:title', @article ? @article.title : @page_title %>
   
-  <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
+  <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="author" href="https://plus.google.com/118260479267451543665" />
-  <link rel="icon" type="image/png" href="/images/theme/favicon.png" />
+  <link rel="author" href="https://plus.google.com/118260479267451543665">
+  <link rel="icon" type="image/png" href="/images/theme/favicon.png">
   
   <%= twitter_card(@article, @description) if @article %>
   <%= open_graph(@article, @description) if @article %>
   <%= google_plus(@article, @description) if @article %>  
 </head>
 <body>
-  <% unless ['redirect', 'view_page'].include?(controller.action_name)  %>
-  <div class='img-wrapper'>
-    <div class='title-wrapper'>
-      <div class='container'>
-        <div class='row'>
-          <div class='col-lg-10 col-lg-offset-1'>
-            <%= get_title %>
-            <p>
-              <img src='/images/theme/frederic-de-villamil-circle.png' alt="Frédéric de Villamil" class='circular' />
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
   <%= render partial: 'shared/nav' %>
 
 <div class='container'> 
-  <div id='page' <%= "class='img-margin'" unless ['redirect', 'view_page'].include?(controller.action_name) %> >
+  <div id='page'>
     <%= yield %>
   </div>
   

@@ -61,13 +61,13 @@ def twitter_card(article, description)
   img = get_image(article)
 
   <<-HTML
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@fdevillamil" />
-  <meta name="twitter:site" content="@fdevillamil" />
-  <meta name="twitter:title" content="#{h(article.title)}" />
-  <meta name="twitter:description" content="#{h(description)}" />
-  <meta name="twitter:domain" content="t37.net" />
-  <meta name="twitter:image" content="#{img.attributes['src'] if img}" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@fdevillamil">
+  <meta name="twitter:site" content="@fdevillamil">
+  <meta name="twitter:title" content="#{h(article.title)}">
+  <meta name="twitter:description" content="#{h(description)}">
+  <meta name="twitter:domain" content="t37.net">
+  <meta name="twitter:image" content="#{img.attributes['src'] if img}">
   HTML
 end
 
@@ -75,11 +75,11 @@ def open_graph(article, description)
   img = get_image(article)
   
   <<-HTML
-  <meta property="og:locale" content="fr_fr" />
-  <meta property="og:description" content="#{h(description)}" />
-  <meta property="og:url" content="#{article.permalink_url}" />
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="#{img.attributes['src'] if img}" />
+  <meta property="og:locale" content="fr_fr">
+  <meta property="og:description" content="#{h(description)}">
+  <meta property="og:url" content="#{article.permalink_url}">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="#{img.attributes['src'] if img}">
   HTML
 end
 
@@ -96,7 +96,7 @@ end
 def get_title
   page = params[:page] ? "<br />page #{params[:page]}" : ""
   if controller.action_name == 'archives'
-     return content_tag(:h1, link_to("#{this_blog.blog_name}<br />Archives".html_safe, controller: 'articles', action: 'archives').html_safe).html_safe
+     return content_tag(:h1, link_to("Archives", controller: 'articles', action: 'archives').html_safe).html_safe
   end
   
   if controller.action_name == 'search'
@@ -111,6 +111,10 @@ def get_title
   if controller.controller_name == 'notes' and controller.action_name == 'show'
     return content_tag(:h1, link_to(truncate(@note.html(:body).strip_html, length: 66, separator: ' ', omissions: '...'), controller: 'notes', action: 'show', id: params[:id]))
   end
+
+  if controller.controller_name == 'notes' and controller.action_name == 'index'
+    return content_tag(:h1, link_to("Quick notes#{page}".html_safe, controller: 'notes', action: 'index', page: params[:page]).html_safe).html_safe
+  end
   
   return content_tag(:h1, link_to("#{this_blog.blog_name}#{page}".html_safe, this_blog.base_url).html_safe).html_safe
 end
@@ -118,4 +122,9 @@ end
 def get_lang
   return 'fr' if controller.action_name == 'redirect' and @article and @article.tags.map { |tag| tag.name }.include?('francais')
   'en'
+end
+
+def get_avatar
+  return image_tag('/images/theme/frederic-de-villamil-circle.png', alt: "Frédéric de Villamil", class: 'avatar') if ['redirect', 'view_page'].include?(controller.action_name)
+  ""
 end
