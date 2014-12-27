@@ -281,3 +281,8 @@ table.CodeRay {
   background: none;
   white-space: pre;
 }
+
+/* Newsletter */
+img.newsletter { 
+  border: none;
+}
