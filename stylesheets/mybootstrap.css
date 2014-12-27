@@ -175,6 +175,10 @@ img.thumb {
   border: none;
 }
 
+img.avatar {
+  width: 96px;
+  
+}
 /*
  * Page header
  */
@@ -286,3 +290,4 @@ table.CodeRay {
 img.newsletter { 
   border: none;
 }
+
