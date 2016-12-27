@@ -8,7 +8,7 @@
   </header>  
   <section class='col-lg-8'>
     <% s = truncate(article.html(:body).strip_html, length: 140, separator: ' ') 
-        article.body = s
+        article.body = s.gsub("&amp;","&")
     %>
     
     <%= link_to_permalink(article, content_tag(:h3, article.title) + article.html(:body)) %>
