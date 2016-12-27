@@ -10,8 +10,8 @@
     <% article.body = truncate(article.html(:body).strip_html, length: 140, separator: ' ')
     %>
     
-    <%= link_to_permalink(article, content_tag(:h3, article.title) + article.html(:body)) %>
-    <small><%= tag_links(article, "In:") %></small>
+    <%= link_to_permalink(article, content_tag(:h3, article.title) + article.html(:body).gsub('&amp;', '&').html_safe) %>
+    <small><%= tag_links_custom(article, "In:").html_safe %></small>
   </section>
   <footer class='col-lg-10 col-lg-offset-1'>
     <hr />

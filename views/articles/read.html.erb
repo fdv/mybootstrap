@@ -32,7 +32,7 @@
         <small>FREDERIC DE VILLAMIL <time>on <%= display_date(@article.published_at) %></time></small>
       </div>
       
-      <div class='col-lg-6 text-right'><small><%= tag_links(@article, "In") %></small></div>
+      <div class='col-lg-6 text-right'><small><%= tag_links_custom(@article, "In").html_safe %></small></div>
     </div>
       <hr />
       <div class='row'>

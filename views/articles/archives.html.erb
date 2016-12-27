@@ -19,7 +19,7 @@
                <% end -%>
                <p>
                  <%= article.published_at.mday %> -
-                 <%= link_to_permalink(article,h(article.title)) %><small><%= tag_links(article, "<br />In") unless article.tags.empty? %></small>
+                 <%= link_to_permalink(article,h(article.title)) %><small><%= tag_links_custom(article, "<br />In").html_safe unless article.tags.empty? %></small>
                </p>
     <% end 
     end -%>

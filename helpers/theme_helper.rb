@@ -8,7 +8,7 @@ def view_on_twitter(status)
   return link_to('view on Twitter', File.join('https://twitter.com', status.user.twitter_account, 'status', status.twitter_id), {class: 'u-syndication', rel: 'syndication'})
 end
 
-def tag_links(article, prefix="tags")
+def tag_links_custom(article, prefix="tags")
   "#{prefix}" + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
 end
 
@@ -50,7 +50,7 @@ def note_title(content)
 end
 
 def get_image(article)
-  doc = Hpricot(article.body + article.extended)
+  doc = Hpricot(article.body.to_s + article.extended.to_s)
   img = doc.at("img.centered")
   
   return img if img

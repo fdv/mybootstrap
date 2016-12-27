@@ -28,9 +28,9 @@
   <link rel="author" href="https://plus.google.com/118260479267451543665">
   <link rel="icon" type="image/png" href="/images/theme/favicon.png">
   
-  <%= twitter_card(@article, @description) if @article %>
-  <%= open_graph(@article, @description) if @article %>
-  <%= google_plus(@article, @description) if @article %>  
+  <%= twitter_card(@article, @description).html_safe if @article %>
+  <%= open_graph(@article, @description).html_safe if @article %>
+  <%= google_plus(@article, @description).html_safe if @article %>  
 </head>
 <body>
   <%= render partial: 'shared/nav' %>

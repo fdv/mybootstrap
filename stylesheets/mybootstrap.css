@@ -155,6 +155,8 @@ nav img {
 
 nav img.avatar {
   margin-right: 10px;
+  width: 32px;
+  height: 32px;
 }
 
 img.thumb {
@@ -177,7 +179,7 @@ img.thumb {
 
 img.avatar {
   width: 96px;
-  
+  height: 96px;
 }
 /*
  * Page header
